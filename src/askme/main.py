@@ -1,12 +1,10 @@
 import sys
-# [cite: 201, 202, 203, 205]
 from .managers import UsersManager, QuestionsManager
 from .models import User
 from .utils import show_menu, input_int
 import getpass 
 
 def main():
-    # [cite: 207]
     users_mgr = UsersManager()
     questions_mgr = QuestionsManager()
 
@@ -18,7 +16,7 @@ def main():
 
         if choice == 1: # Login
             username = input("Username: ")
-            # [cite: 291] 
+             
             try:
                 password = getpass.getpass("Password: ")
             except:
@@ -31,7 +29,7 @@ def main():
             else:
                 print("Error: Invalid username or password.")
 
-        elif choice == 2: # Sign Up
+        elif choice == 2: 
             print("\n--- Create New Account ---")
             username = input("Username: ")
             if users_mgr.is_username_exist(username):

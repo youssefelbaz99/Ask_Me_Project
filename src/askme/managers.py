@@ -2,12 +2,12 @@ import os
 from .models import User, Question
 from .utils import read_file_lines, write_file_lines, input_int
 
-# [cite: 141, 143, 145]
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "..", "data")
 
 class UsersManager:
-    # [cite: 181]
+    
     def __init__(self):
         self.file_path = os.path.join(DATA_DIR, "users.txt")
         self.users = {} 
@@ -15,7 +15,7 @@ class UsersManager:
         self.load()
 
     def load(self):
-        # [cite: 183]
+        
         lines = read_file_lines(self.file_path)
         self.users.clear()
         for line in lines:
@@ -25,7 +25,7 @@ class UsersManager:
                 self.last_id = max(self.last_id, user.user_id)
 
     def save_user(self, user):
-        # [cite: 184]
+        
         if user.user_id == -1:
             self.last_id += 1
             user.user_id = self.last_id
@@ -49,7 +49,7 @@ class UsersManager:
         return username in self.users
 
 class QuestionsManager:
-    # [cite: 147]
+    
     def __init__(self):
         self.file_path = os.path.join(DATA_DIR, "questions.txt")
         self.questions = {} 
@@ -57,7 +57,7 @@ class QuestionsManager:
         self.load()
 
     def load(self):
-        # [cite: 173]
+        
         lines = read_file_lines(self.file_path)
         self.questions.clear()
         for line in lines:
@@ -78,7 +78,7 @@ class QuestionsManager:
         write_file_lines(self.file_path, lines, append=False)
 
     def print_to_questions(self, user):
-        # [cite: 175]
+       
         print("\n--- Questions For You ---")
         found = False
         for q in self.questions.values():
@@ -91,7 +91,7 @@ class QuestionsManager:
             print("No questions found.")
 
     def print_from_questions(self, user):
-        # [cite: 176]
+        
         print("\n--- Questions From You ---")
         found = False
         for q in self.questions.values():
@@ -108,7 +108,7 @@ class QuestionsManager:
                 print(f"\tAnswer: {q.text}")
 
     def ask_question(self, from_user, users_manager):
-        # [cite: 177]
+        
         to_user_id = input_int("Enter User ID to ask: ")
         target_user = users_manager.get_user_by_id(to_user_id)
         
@@ -128,7 +128,7 @@ class QuestionsManager:
         print("Question sent.")
 
     def answer_question(self, user):
-        # [cite: 178]
+       
         q_id = input_int("Enter Question ID to answer: ")
         if q_id not in self.questions:
             print("Question not found.")
@@ -145,7 +145,7 @@ class QuestionsManager:
         print("Answer saved.")
 
     def delete_question(self, user):
-        # [cite: 179]
+       
         q_id = input_int("Enter Question ID to delete: ")
         if q_id not in self.questions:
             print("Question not found.")
@@ -166,7 +166,7 @@ class QuestionsManager:
         print("Question deleted.")
 
     def list_feed(self):
-        # [cite: 180]
+        
         print("\n--- Feed ---")
         for q in self.questions.values():
             if q.parent_id == -1: 
