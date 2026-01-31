@@ -13,24 +13,6 @@ A Python command-line application designed to simulate an anonymous asking platf
 - **Feed**: List all answered questions in the system.
 - **File Database**: Custom flat-file database using `|` as a delimiter.
 
-
-## Project Structure
-
-AskMeApp/
-│
-├── src/
-│   ├── askme/              # Source Code
-│   │   ├── main.py         # Entry point (Application Logic)
-│   │   ├── managers.py     # Data Managers (Logic Layer)
-│   │   ├── models.py       # Data Classes (User, Question)
-│   │   └── utils.py        # Helper functions (File I/O, Inputs)
-│   │
-│   └── data/               # Database Files
-│       ├── users.txt       # Stores user data
-│       └── questions.txt   # Stores questions and threads
-│
-└── README.md
-
 ## How to Run
 1. Navigate to the project root directory.
 2. Run the following command:
