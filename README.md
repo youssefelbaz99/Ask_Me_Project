@@ -18,3 +18,6 @@ A Python command-line application designed to simulate an anonymous asking platf
 2. Run the following command:
    ```bash
    python -m src.askme.main
+
+   https://github.com/user-attachments/assets/99e0a214-334c-4b04-a32c-40fd590aa76b
+   
